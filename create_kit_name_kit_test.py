@@ -22,27 +22,37 @@ def get_kit_body(name):
 # Функция позитивной проверки
 def positive_assert(name):
     # сохраняется новое тело запроса в kit_body :
-    kit_body = get_kit_body(name)
+    kit_body_positive = get_kit_body(name)
     # Передаётся auth_token
     auth_token = get_new_user_token()
     # сохраняется результат запроса при создании набора в kit_responce  :
-    kit_response = sender_stand_request.post_new_client_kit(kit_body, auth_token)
+    kit_response_positive = sender_stand_request.post_new_client_kit(kit_body_positive, auth_token)
     # Проверка кода ответа = 201
-    assert kit_response.status_code == 201
+    assert kit_response_positive.status_code == 201
     # Проверка, что в наборе имя соответствует заданному
-    assert kit_response.json()["name"] == name
+    assert kit_response_positive.json()["name"] == name
 
 
- # Функция негативной проверки
-def negative_assert_code_400(name):
+ # Функция негативной проверки с полем имя в теле запроса
+def negative_assert(name):
     # В переменную kit_body сохраняется новое тело запроса:
-    kit_body = get_kit_body(name)
+    kit_body_negative = get_kit_body(name)
     # Передаётся auth_token
     auth_token = get_new_user_token()
     # В переменную response сохраняется результат
-    kit_response = sender_stand_request.post_new_client_kit(kit_body, auth_token)
+    kit_response_negative = sender_stand_request.post_new_client_kit(kit_body_negative, auth_token)
     #  Проверяется, что код ответа = 400
-    assert kit_response.status_code == 400
+    assert kit_response_negative.status_code == 400
+
+ # Функция негативной проверки без поля имя в теле запроса
+def negative_assert_no_name(kit_body):
+    # Передаётся auth_token
+    auth_token = get_new_user_token()
+    # В переменную response сохраняется результат
+    kit_response_negative_no_name = sender_stand_request.post_new_client_kit(kit_body, auth_token)
+    #  Проверяется, что код ответа = 400
+    assert kit_response_negative_no_name.status_code == 400
+
 
 
 # Тест 1. Допустимое количество символов
