@@ -78,31 +78,31 @@ def test_create_kit_512_letters_in_kit_name_get_error_response():
     negative_assert_code_400("AbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdAbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcD")
 
 
-# Тест 5. Рвзрешены английские буквы
+# Тест 5. Разрешены английские буквы
 
 def test_create_kit_english_letters_in_kit_name_get_success_response():
     positive_assert("QWErty")
 
 
-# Тест 6. Рвзрешены русские буквы
+# Тест 6. Разрешены русские буквы
 
 def test_create_kit_russian_letters_in_kit_name_get_success_response():
     positive_assert("Мария")
 
 
-# Тест 7. Рвзрешены спецсимволы
+# Тест 7. Разрешены спецсимволы
 
 def test_create_kit_special_symbols_in_kit_name_get_success_response():
     positive_assert('"№%@",')
 
 
-# Тест 8. Рвзрешены пробелы
+# Тест 8. Разрешены пробелы
 
 def test_create_kit_spaces_in_kit_name_get_success_response():
     positive_assert(" Человек и КО ")
 
 
-# Тест 9. Рвзрешены цифры
+# Тест 9. Разрешены цифры
 
 def test_create_kit_numbers_in_kit_name_get_success_response():
     positive_assert("123")
