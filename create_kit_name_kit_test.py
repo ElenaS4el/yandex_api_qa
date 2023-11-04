@@ -109,8 +109,10 @@ def test_create_kit_numbers_in_kit_name_get_success_response():
 
 
 # Тест 10. Негативный тест. Параметр не передан в запросе
-def test_create_kit_empty_in_kit_name_get_error_response():
-    negative_assert_code_400("")
+def test_create_kit_no_name_get_error_response():
+    current_kit_body_negative_no_name = data.kit_body.copy()
+    current_kit_body_negative_no_name.pop("name")
+    negative_assertion_no_name(current_kit_body_negative_no_name)
 
 
 # Тест 11. Негативный тест. Передан другой тип данных
